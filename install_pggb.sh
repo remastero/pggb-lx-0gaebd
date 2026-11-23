@@ -98,7 +98,7 @@ if [ "$WINDOW" -eq 0 ] && ! have_user_systemd; then
     fail "systemd's user manager is not reachable (systemctl --user). Log in to this user directly (not with su), or install with --window and start PGGB yourself."
 fi
 
-tar -tzf "$KIT" 2>/dev/null | grep -qx 'pggb/bin/pggb-launch' \
+tar -tzf "$KIT" 2>/dev/null | grep -x 'pggb/bin/pggb-launch' >/dev/null \
     || fail "$KIT is not a PGGB for Linux kit (it has no pggb/bin/pggb-launch)."
 
 # ---------------------------------------------------------------- install

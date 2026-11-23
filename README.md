@@ -59,4 +59,4 @@ them yourself for a clean start.
 
 ---
 
-Script version 1, 22 November 2026.
+Script version 1.1, 22 November 2026.
