@@ -72,6 +72,9 @@ To use it:
 
 - In your player, choose the device `pggb_bridge` (PGGB Bridge), or `hw:CARD=PGGBBridge,DEV=0`. Do not choose
   `plughw:`, `default` or `dmix`: they can change the audio before PGGB gets it.
+- In Roon, the PGGB Bridge shows as two ALSA devices, both named "Loopback PCM", with no other detail. Enable the first
+  one only, and give it a name such as "PGGB Bridge" in Roon's settings for that device. The second does not reach
+  PGGB. If PGGB's Device Input shows no signal while Roon plays, switch to the other one.
 - In PGGB-Live, choose the input "Device Input (PGGB Bridge)", press Play, then start the player.
 
 Notes:
@@ -96,6 +99,10 @@ frames.
 - Updates keep your Direct Ethernet setting.
 - `--no-direct-ethernet` disables it again. `--remove` removes it along with PGGB.
 - PGGB's own switch, Allow Direct Ethernet, is with the PAL endpoint's settings and is on by default.
+- A cable straight from this computer to the endpoint has no DHCP server: give both ends fixed addresses in the same
+  range (for example 10.0.0.1 and 10.0.0.2, mask 255.255.255.0). PGGB looks for endpoints on every network port. If
+  the endpoint is not listed, type its address in "PAL host or address" (the Output devices gear panel, with PAL
+  selected) and press Enter. A firewall on this computer must allow UDP from the endpoint.
 - PGGB started from your desktop with `--window` does not have this network permission, so Bypass streams use UDP.
 - With an older kit that has no Direct Ethernet, `--direct-ethernet` sets up the service but says that the kit has no
   Direct Ethernet: PGGB sends over UDP until you update to a kit that has it.
