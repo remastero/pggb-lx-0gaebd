@@ -2,6 +2,21 @@
 
 `install_pggb.sh` installs PGGB from the PGGB for Linux kit (`pggb-linux-<version>.tar.gz`) for the user who runs it.
 
+## Get the kit
+
+The newest kit is in this repository: `pggb-linux-9.1.47.tar.gz`, a test build of 24 November 2026. Download it with
+its checksum file and the script into one folder, then check the kit:
+
+```sh
+curl -LO https://github.com/remastero/pggb-lx-0gaebd/raw/main/pggb-linux-9.1.47.tar.gz
+curl -LO https://github.com/remastero/pggb-lx-0gaebd/raw/main/pggb-linux-9.1.47.tar.gz.sha256
+curl -LO https://github.com/remastero/pggb-lx-0gaebd/raw/main/install_pggb.sh
+sha256sum -c pggb-linux-9.1.47.tar.gz.sha256
+```
+
+`sha256sum` prints `pggb-linux-9.1.47.tar.gz: OK` when the kit is complete. Then install or update as below, with
+`pggb-linux-9.1.47.tar.gz` in place of `pggb-linux-<version>.tar.gz`. An update keeps your settings and your licence.
+
 ## What it needs
 
 - A 64-bit x86 computer running Linux with glibc 2.36 or newer and systemd.
@@ -72,7 +87,7 @@ Notes:
 
 With Direct Ethernet, PGGB sends Bypass streams to a PGGB-Audio-Link (PAL) endpoint as raw Ethernet frames when both
 computers are wired to the same network and the endpoint supports it. Without Direct Ethernet, these streams use UDP.
-Upsampled streams and Wi-Fi use TCP either way. Requires PGGB for Linux 9.1.48 or newer.
+Upsampled streams and Wi-Fi use TCP either way. The kit in this repository has it.
 
 Direct Ethernet is off unless you request it. `--direct-ethernet` enables it: PGGB runs as a system service instead of a
 user service, still under your user account, with one extra network permission, CAP_NET_RAW, to send raw Ethernet
@@ -82,8 +97,8 @@ frames.
 - `--no-direct-ethernet` disables it again. `--remove` removes it along with PGGB.
 - PGGB's own switch, Allow Direct Ethernet, is with the PAL endpoint's settings and is on by default.
 - PGGB started from your desktop with `--window` does not have this network permission, so Bypass streams use UDP.
-- With a kit older than 9.1.48, `--direct-ethernet` sets up the service but says that the kit has no Direct Ethernet:
-  PGGB sends over UDP until you update to a kit that has it.
+- With an older kit that has no Direct Ethernet, `--direct-ethernet` sets up the service but says that the kit has no
+  Direct Ethernet: PGGB sends over UDP until you update to a kit that has it.
 
 ## The web Remote
 
