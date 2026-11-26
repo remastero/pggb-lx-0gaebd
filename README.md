@@ -4,18 +4,20 @@
 
 ## Get the kit
 
-The newest kit is in this repository: `pggb-linux-9.1.47.tar.gz`, a test build of 24 November 2026. Download it with
+The newest kit is in this repository: `pggb-linux-9.1.48.tar.gz`, a test build of 25 November 2026. Download it with
 its checksum file and the script into one folder, then check the kit:
 
 ```sh
-curl -LO https://github.com/remastero/pggb-lx-0gaebd/raw/main/pggb-linux-9.1.47.tar.gz
-curl -LO https://github.com/remastero/pggb-lx-0gaebd/raw/main/pggb-linux-9.1.47.tar.gz.sha256
+curl -LO https://github.com/remastero/pggb-lx-0gaebd/raw/main/pggb-linux-9.1.48.tar.gz
+curl -LO https://github.com/remastero/pggb-lx-0gaebd/raw/main/pggb-linux-9.1.48.tar.gz.sha256
 curl -LO https://github.com/remastero/pggb-lx-0gaebd/raw/main/install_pggb.sh
-sha256sum -c pggb-linux-9.1.47.tar.gz.sha256
+sha256sum -c pggb-linux-9.1.48.tar.gz.sha256
 ```
 
-`sha256sum` prints `pggb-linux-9.1.47.tar.gz: OK` when the kit is complete. Then install or update as below, with
-`pggb-linux-9.1.47.tar.gz` in place of `pggb-linux-<version>.tar.gz`. An update keeps your settings and your licence.
+`sha256sum` prints `pggb-linux-9.1.48.tar.gz: OK` when the kit is complete. Then install or update as below, with
+`pggb-linux-9.1.48.tar.gz` in place of `pggb-linux-<version>.tar.gz`. An update keeps your settings and your licence.
+
+What is new in this kit, and these steps on one page: https://remastero.github.io/pggb-lx-0gaebd/
 
 ## What it needs
 
@@ -72,9 +74,8 @@ To use it:
 
 - In your player, choose the device `pggb_bridge` (PGGB Bridge), or `hw:CARD=PGGBBridge,DEV=0`. Do not choose
   `plughw:`, `default` or `dmix`: they can change the audio before PGGB gets it.
-- In Roon, the PGGB Bridge shows as two ALSA devices, both named "Loopback PCM", with no other detail. Enable the first
-  one only, and give it a name such as "PGGB Bridge" in Roon's settings for that device. The second does not reach
-  PGGB. If PGGB's Device Input shows no signal while Roon plays, switch to the other one.
+- In Roon, the PGGB Bridge shows as two ALSA devices, both named "Loopback PCM", with no other detail. Either one
+  works: enable one of them and give it a name such as "PGGB Bridge" in Roon's settings for that device.
 - In PGGB-Live, choose the input "Device Input (PGGB Bridge)", press Play, then start the player.
 
 Notes:
