@@ -87,6 +87,35 @@ Notes:
   loopback module is in use.
 - `--remove` removes the PGGB Bridge's files. ALSA's packages stay.
 
+## PGGB-Audio-Link (PAL) endpoints
+
+A PGGB-Audio-Link (PAL) endpoint is the small program on the computer wired to your DAC, which PGGB plays to. Get it
+from PGGB's downloads page, https://github.com/remastero/pggb-downloads/releases/latest: it has every endpoint, for Arch Linux, Debian,
+Ubuntu and Raspberry Pi OS, Fedora, the Raspberry Pi 4 and 5 (ready-made PAL OS card images), Mac and Windows.
+
+On Arch Linux, install or update it on the endpoint computer. A Raspberry Pi or another arm64 computer:
+
+```sh
+curl -LO https://github.com/remastero/pggb-downloads/releases/latest/download/pggb-audio-link-aarch64.pkg.tar.zst
+sudo pacman -U ./pggb-audio-link-aarch64.pkg.tar.zst
+```
+
+An x86-64 computer:
+
+```sh
+curl -LO https://github.com/remastero/pggb-downloads/releases/latest/download/pggb-audio-link-x86_64.pkg.tar.zst
+sudo pacman -U ./pggb-audio-link-x86_64.pkg.tar.zst
+```
+
+- The package creates the endpoint's user and folder, then starts its service, which starts again at every boot. The
+  same two commands update an endpoint that is already installed.
+- Debian, Ubuntu and Raspberry Pi OS: `pggb-audio-link_arm64.deb` or `pggb-audio-link_amd64.deb`, with
+  `sudo apt install ./<file>`. Fedora and other RPM systems: `pggb-audio-link.aarch64.rpm` or
+  `pggb-audio-link.x86_64.rpm`, with `sudo dnf install ./<file>`.
+- In PGGB-Live, choose the output type PGGB-Audio-Link (PAL). PGGB finds endpoints on the network; if yours is not
+  listed, type its address in "PAL host or address" (the Output devices gear panel, with PAL selected) and press Enter.
+- The endpoint on the downloads page today is version 0.3.0-8.2, the newest.
+
 ## Direct Ethernet (optional)
 
 With Direct Ethernet, PGGB sends Bypass streams to a PGGB-Audio-Link (PAL) endpoint as raw Ethernet frames when both
